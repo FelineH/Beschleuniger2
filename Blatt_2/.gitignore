@@ -1,0 +1,13 @@
+build/
+*.pdf
+*.aux
+*.bcf
+*.log
+*.bbl
+*.blg
+*.run.xml
+*.toc
+_pycache_/
+*.vsdx
+
+#*-Operator steht für beliebig lange Zeichenkette
