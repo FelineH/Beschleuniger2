@@ -17,6 +17,8 @@ def simulate_synchrotron(time):
     '''Simulate synchrotron emission by one circling electron.
     INPUT   circling time of the electron in seconds'''
     check_input(time)  
+
+    # Create a figure and a set of subplots in one call instead of fig = plt.figure() and ax = fig.add_subplot(1,1,1)
     fig, ax = plt.subplots(figsize=[6.4, 6.4]) # sizes in inches, default [6.4, 4.8]
 
     # draw electron motion: center in origin, specify color and transparency
@@ -57,7 +59,7 @@ def simulate_synchrotron(time):
     ax.axvline(x=0, linestyle='--', color='black', linewidth=0.5)
 
     # save output
-    fig.savefig('synchrotron-{:06.1f}.pdf'.format(time*1e9))
+    fig.savefig('build/synchrotron-{:06.1f}.pdf'.format(time*1e9))
     fig.clf()
 
 
