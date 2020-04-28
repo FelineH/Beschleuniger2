@@ -1,6 +1,10 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+import os 
+if not os.path.isdir('build'):
+    os.mkdir('build')
+
 # define constants
 SPEED_OF_LIGHT = 299792458 # meter per second
 CIRCUMFERENCE = 100 # meter
