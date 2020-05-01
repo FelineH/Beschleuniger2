@@ -1,0 +1,22 @@
+Korrektur Übungsblatt 2 - Hannah Rotgeri, Feline Heinzelmann
+
+A1: a)	eine Fomrle zur Brillanz (siehe Skript) hätte das etwas anschaulicher gemacht, aber richtig.
+	b)	richtig.
+-> 2/2 Pkte
+
+A2: a)	Nicht so ganz. Ansatz über Delta E [keV] = 88.5 E[GeV]^4/R[m] und daraus lambda ist einfacher. -> 1 Pkte
+	b)	In eurer Formel für den Strahlungsverlust muss e, statt e^2.
+		Einfacher wäre die "handliche Formel" mit 88.5 E^4/R.
+		Außerdem habt ihr den Strahlstrom nicht beachtet.
+		-> 0/1 Pkte
+	c) In der Formel, die ihr da geschrieben habt, steht ein R. Keine Ahnung, was das hier soll.
+	   Aber Ergebnis ist richtig.
+	   Für Formel für Anzahl Elektronen siehe b)
+	   Rest richtig
+	   -> 1/1 Pkte
+
+A3: Richtig. -> 4/4 Pkte
+
+------------------------
+
+Gesamt: 8/9 Pkte
