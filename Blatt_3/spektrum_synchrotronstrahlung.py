@@ -58,7 +58,22 @@ for i in np.arange(0.001,5.000,0.001): # range()-function can't be used to gener
     y_values.append(spectral_density)
     x_values.append(i*omega_critical)    
 
+#proportion of the spectrum measured by the diode
+#ratio between power emitted and power measured is the same as the sum of all power per spectral intervall
+#in ratio to the power per spectral intervall between 200nm and 800nm
 
+spectral_density = np.array(y_values)
+frequency = np.array(x_values)
+minmax = np.array([200e-9, 800e-9])
+minmax = c/minmax * 2 * np.pi#wavelength to angular frequency
+print(minmax)
+#print(x_values)
+
+P_ges=np.sum(spectral_density)
+P_diode=np.sum(spectral_density[np.logical_and(frequency > minmax[0], frequency < minmax[1])])
+print(P_ges)
+print(P_diode)
+print(P_diode/P_ges)
 
 
 #draw function
