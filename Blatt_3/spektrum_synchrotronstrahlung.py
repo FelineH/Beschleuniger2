@@ -64,37 +64,6 @@ for i in np.arange(0.001,5.000,0.001): # range()-function can't be used to gener
     y_values.append(spectral_density) # add x and y-values to the empty list in order to plot the spectral density in the range from 0,001*omega_critical to 5*omega_critical
     x_values.append(i*omega_critical)    
 
-
-
-#draw function
-
-#draw angular spectral density in a linear form
-fig, ax = plt.subplots()
-ax.plot(x_values,y_values)
-ax.axvspan(*minmax, color='C3', alpha=1  ,label='Empfindlichkeit der Diode')
-ax.set_title('Spektrale Leistungsdichte')
-ax.set_xlabel(r"$\omega$ in $10^{19} \, 1/s$")
-ax.set_ylabel(r"$\mathrm{d}P/\mathrm{d}\omega$")
-ax.grid(True, alpha = 0.7)
-fig.savefig('build/spektrum_synchrotronstrahlung.pdf')
-fig.clf()
-
-#draw angular spectral density in a logarithmic form 
-fig,ax = plt.subplots()
-ax.plot(x_values,y_values)
-ax.axvspan(*minmax, color='C3', alpha=0.3, label='Empfindlichkeit der Diode')
-ax.set_yscale('log')
-ax.set_xscale('log')
-ax.set_title('Spektrale_Leistungsdichte doppelt-logarithmisch')
-ax.set_xlabel(r"$\omega$ in $1/s$")
-ax.set_ylabel(r"$\mathrm{d}P/\mathrm{d}\omega$")
-ax.set_title('Spektrale Leistungsdichte')
-ax.grid(True, alpha = 0.7)
-fig.savefig('build/spektrum_synchrotronstrahlung_logarithmisch.pdf')
-fig.clf()
-
-
-
 #############################################################################################################################################################################
 
 # 3.b)
@@ -121,3 +90,36 @@ alpha = 0.01/10 # with sin alpha = alpha = a/L = 0.001; a = 1cm = 0.01m; L = 10m
 P_meas = P_diode/P_ges / (2 * np.pi) * alpha
 
 print('Ratio:', P_meas)
+
+######################################################################################################################################################################################
+
+#draw function
+
+#draw angular spectral density in a linear form
+fig, ax = plt.subplots()
+ax.plot(x_values,y_values)
+ax.axvspan(*minmax, color='C3', alpha=1  ,label='Empfindlichkeit der Diode')
+ax.set_title('Spektrale Leistungsdichte')
+ax.set_xlabel(r"$\omega$ in $10^{19} \, 1/s$")
+ax.set_ylabel(r"$\mathrm{d}P/\mathrm{d}\omega$")
+ax.grid(True, alpha = 0.7)
+fig.savefig('build/spektrum_synchrotronstrahlung.pdf')
+fig.clf()
+
+#draw angular spectral density in a logarithmic form 
+fig,ax = plt.subplots()
+ax.plot(x_values,y_values)
+ax.axvspan(*minmax, color='C3', alpha=0.3, label='Empfindlichkeit der Diode')
+ax.set_yscale('log')
+ax.set_xscale('log')
+ax.set_title('Spektrale_Leistungsdichte doppelt-logarithmisch')
+ax.set_xlabel(r"$\omega$ in $1/s$")
+ax.set_ylabel(r"$\mathrm{d}P/\mathrm{d}\omega$")
+ax.set_title('Spektrale Leistungsdichte (logarithmisch)')
+ax.grid(True, alpha = 0.7)
+fig.savefig('build/spektrum_synchrotronstrahlung_logarithmisch.pdf')
+fig.clf()
+
+
+
+
