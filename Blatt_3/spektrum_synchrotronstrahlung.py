@@ -23,7 +23,6 @@ v_bessel = 5/3 #order of the Bessel function and first paramter for th emodified
 
 
 
-
 #computed constants
 E_synchrotron = (88.5*E_electronbeam**4)/R_bend #keV with input E_electron in GeV (energy loss pro perimeter and electron)
 
@@ -39,6 +38,9 @@ print("E_synchrotron =", E_synchrotron, "gamma =", gamma, "omega_crit = ", omega
 
 
 
+##############################################################################################################################################################################
+
+#3.a)
 
 #define functions
 
@@ -51,32 +53,17 @@ def universal_function(omega):
     return S
 
 
+
+#calculation of spectral density 
+
 y_values = [] # empty list --> plot
 x_values = []
-for i in np.arange(0.001,5.000,0.001): # range()-function can't be used to generate the range of float numbers
+for i in np.arange(0.001,5.000,0.001): # range()-function can't be used to generate the range of float numbers --> arange() can have float numbers as inputs
     spectral_density = (P_s*universal_function(i*omega_critical))/omega_critical
-    y_values.append(spectral_density)
+    y_values.append(spectral_density) # add x and y-values to the empty list in order to plot the spectral density in the range from 0,001*omega_critical to 5*omega_critical
     x_values.append(i*omega_critical)    
 
-#proportion of the spectrum measured by the diode
-#ratio between power emitted and power measured is the same as the sum of all power per spectral intervall
-#in ratio to the power per spectral intervall between 200nm and 800nm
 
-spectral_density = np.array(y_values)
-frequency = np.array(x_values)
-minmax = np.array([200e-9, 800e-9])
-minmax = c/minmax * 2 * np.pi#wavelength to angular frequency
-
-
-P_ges=np.sum(spectral_density)
-P_diode=np.sum(spectral_density[np.logical_and(frequency < minmax[0], frequency > minmax[1])])
-
-#due to geometry just a small ratio gets to the diode (analog Blatt2 A2)
-# sin alpha = alpha = a/L = 0.001
-
-P_meas = P_diode/P_ges / (2 * np.pi) * 0.001
-
-print('Ratio:', P_meas)
 
 #draw function
 
@@ -104,3 +91,30 @@ ax.set_title('Spektrale Leistungsdichte')
 ax.grid(True, alpha = 0.7)
 fig.savefig('build/spektrum_synchrotronstrahlung_logarithmisch.pdf')
 fig.clf()
+
+
+
+#############################################################################################################################################################################
+
+# 3.b)
+
+spectral_density = np.array(y_values)  
+frequency = np.array(x_values)
+minmax = np.array([200e-9, 800e-9]) # spectral intervall of light which can pass through the vacuum window and the air, and can be measured at the photodiode
+minmax = c/minmax * 2 * np.pi # wavelength to angular frequency
+
+
+#Calculation of the total power
+
+P_ges=np.sum(spectral_density) # ratio between power emitted and power measured is the same as the sum of all power per spectral intervall
+P_diode=np.sum(spectral_density[np.logical_and(frequency < minmax[0], frequency > minmax[1])]) # proportion of the spectrum measured by the diode in ratio to the power per spectral 
+                                                                                               # intervall between 200nm and 800nm
+
+
+#Calculation of the power ratio P_ges at the photodiode
+
+#due to geometry just a small ratio gets to the diode (analogous to  Blatt2 A2)
+alpha = 0.01/10 # with sin alpha = alpha = a/L = 0.001; a = 1cm = 0.01m; L = 10m 
+P_meas = P_diode/P_ges / (2 * np.pi) * alpha
+
+print('Ratio:', P_meas)
