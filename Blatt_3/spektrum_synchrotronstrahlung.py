@@ -66,21 +66,24 @@ spectral_density = np.array(y_values)
 frequency = np.array(x_values)
 minmax = np.array([200e-9, 800e-9])
 minmax = c/minmax * 2 * np.pi#wavelength to angular frequency
-print(minmax)
-#print(x_values)
+
 
 P_ges=np.sum(spectral_density)
-P_diode=np.sum(spectral_density[np.logical_and(frequency > minmax[0], frequency < minmax[1])])
-print(P_ges)
-print(P_diode)
-print(P_diode/P_ges)
+P_diode=np.sum(spectral_density[np.logical_and(frequency < minmax[0], frequency > minmax[1])])
 
+#due to geometry just a small ratio gets to the diode (analog Blatt2 A2)
+# sin alpha = alpha = a/L = 0.001
+
+P_meas = P_diode/P_ges / (2 * np.pi) * 0.001
+
+print('Ratio:', P_meas)
 
 #draw function
 
 #draw angular spectral density in a linear form
 fig, ax = plt.subplots()
 ax.plot(x_values,y_values)
+ax.axvspan(*minmax, color='C3', alpha=1  ,label='Empfindlichkeit der Diode')
 ax.set_title('Spektrale Leistungsdichte')
 ax.set_xlabel(r"$\omega$ in $10^{19} \, 1/s$")
 ax.set_ylabel(r"$\mathrm{d}P/\mathrm{d}\omega$")
@@ -91,6 +94,7 @@ fig.clf()
 #draw angular spectral density in a logarithmic form 
 fig,ax = plt.subplots()
 ax.plot(x_values,y_values)
+ax.axvspan(*minmax, color='C3', alpha=0.3, label='Empfindlichkeit der Diode')
 ax.set_yscale('log')
 ax.set_xscale('log')
 ax.set_title('Spektrale_Leistungsdichte doppelt-logarithmisch')
