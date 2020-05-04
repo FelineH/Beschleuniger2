@@ -44,7 +44,7 @@ print("E_synchrotron =", E_synchrotron, "gamma =", gamma, "omega_crit = ", omega
 
 #universal function that should be used for the calculation later for the spectral density
 def universal_function(omega):
-    integral = integrate.quad(lambda x: kv(v_bessel,x), omega/omega_critical, np.inf)
+    integral = integrate.quad(lambda x: kv(v_bessel,x), omega/omega_critical, np.inf) #https://docs.scipy.org/doc/scipy/reference/tutorial/integrate.html
     if integral[1] >= integral[0]*1e-3: # second entry holds numerical integration error
         raise Warning("Error of integration in range of value. Occured ad omega={:8f}".format(omega))
     S = (9*np.sqrt(3)/(8*np.pi))*(omega/omega_critical)*integral[0]
