@@ -46,10 +46,11 @@ print("E_synchrotron =", E_synchrotron, "gamma =", gamma, "omega_crit = ", omega
 
 #universal function that should be used for the calculation later for the spectral density
 def universal_function(omega):
-    integral = integrate.quad(lambda x: kv(v_bessel,x), omega/omega_critical, np.inf) #https://docs.scipy.org/doc/scipy/reference/tutorial/integrate.html
+    integral = integrate.quad(lambda x: kv(v_bessel,x), omega/omega_critical, np.inf) #https://docs.scipy.org/doc/scipy/reference/tutorial/integrate.html 
+    #the bounds of integrations of the modified bessel function kv go from omega/omega_critical to infinite
     if integral[1] >= integral[0]*1e-3: # second entry holds numerical integration error
         raise Warning("Error of integration in range of value. Occured ad omega={:8f}".format(omega))
-    S = (9*np.sqrt(3)/(8*np.pi))*(omega/omega_critical)*integral[0]
+    S = (9*np.sqrt(3)/(8*np.pi))*(omega/omega_critical)*integral[0] #for the multiplication only use the first entry of the tuple named integral
     return S
 
 
@@ -99,16 +100,18 @@ fig.clf()
 # 3.b)
 
 spectral_density = np.array(y_values)  
-frequency = np.array(x_values)
+angularfrequency = np.array(x_values) # omega
 minmax = np.array([200e-9, 800e-9]) # spectral intervall of light which can pass through the vacuum window and the air, and can be measured at the photodiode
-minmax = c/minmax * 2 * np.pi # wavelength to angular frequency
+minmax = c/minmax * 2 * np.pi # wavelength converted into angular frequency 
 
 
 #Calculation of the total power
 
 P_ges=np.sum(spectral_density) # ratio between power emitted and power measured is the same as the sum of all power per spectral intervall
-P_diode=np.sum(spectral_density[np.logical_and(frequency < minmax[0], frequency > minmax[1])]) # proportion of the spectrum measured by the diode in ratio to the power per spectral 
+P_diode=np.sum(spectral_density[np.logical_and(angularfrequency < minmax[0], angularfrequency > minmax[1])]) # proportion of the spectrum measured by the diode in ratio to the power per spectral 
                                                                                                # intervall between 200nm and 800nm
+                                                                                               # np.logical_and(arr1,arr2)is a logical function and it helps user to find out the 
+                                                                                               # truth value of arr1 AND arr2 element-wise. Both the arrays must be of same shape.
 
 
 #Calculation of the power ratio P_ges at the photodiode
