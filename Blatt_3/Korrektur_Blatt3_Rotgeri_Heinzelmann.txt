@@ -1,0 +1,13 @@
+A1: a) 	i) mehr Energie -> Radius ändert sich auch
+		ii) richtig
+		iii) Begründing verstehe ich nicht recht. Anzahl Elektronen hat keinen Einfluss auf Spektrum.
+	b)  Der Einfluss auf das Spektrum war gefragt.
+	-> 1.5/2
+
+A2:	a) richtig. 
+	b) eigentlich alles richtig. nur dann beim berechneten Zahlenwert der Emittanz ist ein Fehler.
+	-> 3.5/4
+
+A3: 1.5/3	- Korrektur von Stephan, wird in der Übung besprochen
+
+Gesamt: 7.5/9
