@@ -1,0 +1,38 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{amsmath} %for mathemathic formulas
+\usepackage{amssymb}
+\usepackage[ngerman]{babel} %for the german language by the spellling reform (without the package the date would look like April 20, 2020)
+\usepackage{enumitem} %for enumeration surrounding 
+\usepackage{graphicx} %for pictures
+\usepackage{siunitx}
+
+\title{Blatt 4}
+\date{\today}
+\author{Hannah Rotgeri \and Feline Heinzelmann}
+
+\begin{document}
+    \maketitle
+
+    \section*{Aufgabe 1}
+
+
+	
+    \section*{Aufgabe 2}
+	
+        	$\frac{\symup{d}}{\symup{d}t}\biggl(\frac{\vec{n}\times(\vec{n}\times\vec{\beta})}{1-\vec{\beta}\vec{n}}\biggr) &\stackrel{\stackrel{\text{Graßmann-}}{\text{Identität}}}{=} \frac{\symup{d}}{\symup{d}t}\biggl(\frac{\vec{n}(\vec{n}\vec{\beta})-\vec{\beta}}{1-\vec{\beta}\vec{n}}\biggr) \\
+	&\stackrel{\text{Produktregel}}{=} \frac{\vec{n}(\vec{n}\dot{\vec{\beta}})(1-\vec{\beta}\vec{n})+(\dot{\vec{\beta}}\vec{n})\vec{n}(\vec{n}\vec{\beta})-(\dot{\vec{\beta}}(1-\vec{\beta}\vec{n})+\vec{\beta}(\dot{\vec{\beta}}\vec{n}))}{(1-\vec{\beta}\vec{n})^2} \\
+	&= \frac{\vec{n}(\vec{n}\dot{\vec{\beta}})-\cancel{\vec{n}(\vec{n}\dot{\vec{\beta}})(\vec{\beta}\vec{n})}+\cancel{(\dot{\vec{\beta}}\vec{n})\vec{n}(\vec{n}\vec{\beta})}-\dot{\vec{\beta}}+\dot{\vec{\beta}}(\vec{\beta}\vec{n})-\vec{\beta}(\dot{\vec{\beta}}\vec{n})}{(1-\vec{\beta}\vec{n})^2} \\
+	&= \frac{(\vec{n}\dot{\vec{\beta}})(\vec{n}-\vec{\beta})-\dot{\vec{\beta}}(\vec{n}(\vec{n}-\vec{\beta}))}{(1-\vec{\beta}\vec{n})^2} \\
+	&\stackrel{\stackrel{\text{Graßmann-}}{\text{Identität}}}{=} \frac{\vec{n}\times((\vec{n}-\vec{\beta})\times\dot{\vec{\beta}})}{(1-\vec{\beta}\vec{n})^2} \quad \checkmark$
+        
+
+    \section*{Aufgabe 3}
+
+
+
+
+
+\end{document}
+
+
