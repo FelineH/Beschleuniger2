@@ -15,18 +15,34 @@
     \maketitle
 
     \section*{Aufgabe 1}
+	\begin{itemize}
+		\item[a)]
+			Wenn Elektronen relativistisch beschleunigt werden in einer Vakuumkammer, stauchen sich die E-Feld-Linien longitudinal zusammen. 
+			Bei Änderung des Kammerquerschnitts werden die Spiegelladungen transersal beschleunigt. Durch diesen Prozess ensteht Synchrotronstrahlung, da eine Art Hertzscher Dipol gebildet wird.
+		\item[b)]
+			Die Zeit, die mindestens vergehen muss, damit der Detektor anspricht, errechnet sich durch: 
+				$t_{min} = \frac{s}{v} = \frac{\num{30e-3}}{c} = \SI{1e-10}{\second}$
+	\end{itemize}
 
 
 	
     \section*{Aufgabe 2}
-	
-        	$\frac{\symup{d}}{\symup{d}t}\biggl(\frac{\vec{n}\times(\vec{n}\times\vec{\beta})}{1-\vec{\beta}\vec{n}}\biggr) &\stackrel{\stackrel{\text{Graßmann-}}{\text{Identität}}}{=} \frac{\symup{d}}{\symup{d}t}\biggl(\frac{\vec{n}(\vec{n}\vec{\beta})-\vec{\beta}}{1-\vec{\beta}\vec{n}}\biggr) \\
-	&\stackrel{\text{Produktregel}}{=} \frac{\vec{n}(\vec{n}\dot{\vec{\beta}})(1-\vec{\beta}\vec{n})+(\dot{\vec{\beta}}\vec{n})\vec{n}(\vec{n}\vec{\beta})-(\dot{\vec{\beta}}(1-\vec{\beta}\vec{n})+\vec{\beta}(\dot{\vec{\beta}}\vec{n}))}{(1-\vec{\beta}\vec{n})^2} \\
-	&= \frac{\vec{n}(\vec{n}\dot{\vec{\beta}})-\cancel{\vec{n}(\vec{n}\dot{\vec{\beta}})(\vec{\beta}\vec{n})}+\cancel{(\dot{\vec{\beta}}\vec{n})\vec{n}(\vec{n}\vec{\beta})}-\dot{\vec{\beta}}+\dot{\vec{\beta}}(\vec{\beta}\vec{n})-\vec{\beta}(\dot{\vec{\beta}}\vec{n})}{(1-\vec{\beta}\vec{n})^2} \\
-	&= \frac{(\vec{n}\dot{\vec{\beta}})(\vec{n}-\vec{\beta})-\dot{\vec{\beta}}(\vec{n}(\vec{n}-\vec{\beta}))}{(1-\vec{\beta}\vec{n})^2} \\
-	&\stackrel{\stackrel{\text{Graßmann-}}{\text{Identität}}}{=} \frac{\vec{n}\times((\vec{n}-\vec{\beta})\times\dot{\vec{\beta}})}{(1-\vec{\beta}\vec{n})^2} \quad \checkmark$
-        
 
+	\begin{itemize}
+		\item[a)]
+        	$\frac{\symup{d}}{\symup{d}t}\biggl(\frac{\vec{n}\times(\vec{n}\times\vec{\beta})}{1-\vec{\beta}\vec{n}}\biggr) &\stackrel{\stackrel{\text{Graßmann-}}{\text{Identität}}}{=} \frac{\symup{d}}{\symup{d}t}\biggl(\frac{\vec{n}(\vec{n}\vec{\beta})-\vec{\beta}}{1-\vec{\beta}\vec{n}}\biggr) \\
+			&\stackrel{\text{Produktregel}}{=} \frac{\vec{n}(\vec{n}\dot{\vec{\beta}})(1-\vec{\beta}\vec{n})+(\dot{\vec{\beta}}\vec{n})\vec{n}(\vec{n}\vec{\beta})-(\dot{\vec{\beta}}(1-\vec{\beta}\vec{n})+\vec{\beta}(\dot{\vec{\beta}}\vec{n}))}{(1-\vec{\beta}\vec{n})^2} \\
+			&= \frac{\vec{n}(\vec{n}\dot{\vec{\beta}})-\cancel{\vec{n}(\vec{n}\dot{\vec{\beta}})(\vec{\beta}\vec{n})}+\cancel{(\dot{\vec{\beta}}\vec{n})\vec{n}(\vec{n}\vec{\beta})}-\dot{\vec{\beta}}+\dot{\vec{\beta}}(\vec{\beta}\vec{n})-\vec{\beta}(\dot{\vec{\beta}}\vec{n})}{(1-\vec{\beta}\vec{n})^2} \\
+			&= \frac{(\vec{n}\dot{\vec{\beta}})(\vec{n}-\vec{\beta})-\dot{\vec{\beta}}(\vec{n}(\vec{n}-\vec{\beta}))}{(1-\vec{\beta}\vec{n})^2} \\
+			&\stackrel{\stackrel{\text{Graßmann-}}{\text{Identität}}}{=} \frac{\vec{n}\times((\vec{n}-\vec{\beta})\times\dot{\vec{\beta}})}{(1-\vec{\beta}\vec{n})^2} \quad \checkmark$
+        \item[b)]
+			Strahlungsfeld des elektrischen Feldes einer Ladung $e$:
+			\begin{align*}
+				\vec{E}(t) &= \frac{e}{4 \pi \epsilon_{0} c} \cdot \frac{\vec{n} \times \{(\vec{n} - \beta) \times \dot{\vec{\beta}} \} }{r (1-\vec{n} \vec{\beta})^3} \bigg \vert_{ret} \\
+							&= \frac{e}{4 \pi \epsilon_{0} c} \cdot \frac{ \begin{pmatrix} \sin{\theta} \\ 0 \\ \cos{\theta} \end{pmatrix} \times \Biggl\{ \Biggl(\begin{pmatrix} \sin{\theta} \\ 0 \\ \cos{\theta} \end{pmatrix} - \begin{pmatrix} 0 \\ 0 \\ \beta \end{pmatrix} \Biggr) \times \begin{pmatrix} \beta^2 c/R \\ 0 \\ 0 \end{pmatrix} \Biggr\} }{r \Biggl( 1-\begin{pmatrix} \sin{\theta} \\ 0 \\ \cos{\theta} \end{pmatrix} \cdot \begin{pmatrix} 0 \\ 0 \\ \beta \end{pmatrix} \Biggr)^3 } \\
+							&= \frac{e}{4 \pi \epsilon_{0} c} \cdot \frac{ \Biggl( \begin{pmatrix} -\cos{\theta} (\cos{\theta - \beta}) \beta^2c/R \\ 0 \\ \sin{\theta}(\cos{\theta} - \beta) \beta^2c/R \end{pmatrix} \Biggr) }{r (1 - \beta \cos{\theta})^3} \, \text{mit} \, r = R(1+\beta \cos{\theta}) \\
+			\end{align*}
+	\end{itemize}
     \section*{Aufgabe 3}
 
 
