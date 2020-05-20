@@ -41,7 +41,7 @@ def integration_interval(periods,K):
 
 def r_scal(K, periods):    
     '''Abstand zwischen Ladung und Beobachtungspunkt in meter'''
-    r = - beta_averaged(K) * const.c * integration_interval(periods,K) + const.c * K **2 / (8*ωu*γ**2) * np.sin(2*ωu*integration_interval(periods,K)) 
+    r = - beta_averaged(K) * const.c * integration_interval(periods,K) #+ const.c * K **2 / (8*ωu*γ**2) * np.sin(2*ωu*integration_interval(periods,K)) 
     #as the assumption of the task, whereby exp(i*r_p*ω) is a phase factor (drops out because of r_p=0 )
     return r                                                                         
 
@@ -85,6 +85,6 @@ for K in np.arange(1,2.5,0.5):
         ax.set_xlabel(r"$ ω \, \mathrm{in} \, 1/s$")
         #ax.set_xlim(-1,1)
         #ax.set_ylim(-1,1)
-        fig.savefig('build/spektrum_{}{}_{}{}_neu.pdf'.format("K", K, "Perioden", P))
+        fig.savefig('build/spektrum_{}{}_{}{}_neu_d.pdf'.format("K", K, "Perioden", P))
 
 

@@ -23,7 +23,10 @@
 		\item[b)]
 			Das elektrische Feld besteht als Überlagerung vieler sinusförmiger Wellen des E-Feldes aus verschiedenen Wellenlängen bzw. Frequenzen, wobei es eine Grundschwingung gibt.
 			Die Fouriertransformierte des E-Feldes trennt diese Überlagerungen auf, wodurch im Spektrum, Betragsquadrat des E-Feldes bzw. des fouriertransformierten E-Feldes, 
-			die verschiedenen Frequenzsanteile dargestellt werden. Das sich ergebende Spektrum bezeichnet sich als Linienspektrum. 
+			die verschiedenen Frequenzsanteile dargestellt werden. Das sich ergebende Spektrum bezeichnet sich als Linienspektrum. \\
+			Eine sinusförmiges E-Feld unendlicher Periode würde einen Delta-Peak ergeben, da ein Sinus eine Frequenz besitzt, die durch Fourier-Transformation zu einem Peak wird.
+			Die Periodenzahl des Undulators ist jedoch endlich, damit ist der Sinus des E-Feldes auch endlich. Die Einhüllende des Sinus ist hierbei eine Kastenfunktion, die bei der FT ebenso mit transformiert wird. 
+			Somit ergibt sich $sin(x)/x$. Durch Veränderung der Periodenzahl im Nenner verändert sich Linienform. 
 			Die Linienform wird mit zunehmender Breite $N$ schmaler als Eigenschaft der Fourier-Transformierten.
 	\end{itemize}
 
@@ -37,8 +40,8 @@
 			\lambda &= \frac{\lambda_{u}}{2 \gamma^{2}} \cdot (1 + \frac{K^2}{2} + \gamma^2 \theta^2) \text{ mit } \theta = 0 \\
 						&= \frac{\lambda_{u}}{2 \gamma^{2}} \cdot (1 + \frac{K^2}{2} ) \\ 
 						&= \SI{8.7e-9}{\meter} \text{ für } K = 1, \\
-						&= \SI{0.12e-9}{\meter} \text{ für } K = 1.5, \\
-						&= \SI{0.17e-9}{\meter} \text{ für } K = 2, \\
+						&= \SI{12.3e-9}{\meter} \text{ für } K = 1.5, \\
+						&= \SI{17.4e-9}{\meter} \text{ für } K = 2, \\
 						\\
 			E_{\mathrm{Photon}} &= h \cdot \frac{c}{\lambda} \\
 									&= \SI{142}{\electronvolt} \text{ für } K = 1, \\
@@ -51,6 +54,12 @@
 
 
     \section*{Aufgabe 3}
+
+	Hierbei wird das E-Feld auf folgende Weise genähert: \\ 
+	\begin{equation*}
+		\overline E_{x}(\omega) \propto \int_{-T/2}^{T/2} \{ \vec n \times (\vec n  \times \vec \beta)\}_{x} \cdot \exp(-i \omega [ t\prime + \frac{r(t\prime )}{c} ]) \mathbf{t\prime}  .
+	\end{equation*}
+
 		\begin{itemize}
 			\item[a)] Betragsquadrat des elektrischen Felds (wieder in willkürlichen Einheiten) als Funktion der Photonenenergie 
 			im Bereich von $\SI{1}{\electronvolt} \, \text{bis} \, \SI{450}{\electronvolt}$:
@@ -101,8 +110,18 @@
 				\includegraphics[width=0.5\textwidth]{build/spektrum_K1.5_Perioden20_d.pdf}
 			\end{figure}
 
-			Das Spektrum bleibt bezüglich einer Veränderung der longitudinalen Geschwindigkeitskomponente unverändert.
+			Das Spektrum bleibt bezüglich einer Veränderung der longitudinalen Geschwindigkeitskomponente nahezu unverändert. Grund dafür ist, dass durch das Kreuzprodukt nur die x-Komponente im $\beta$-Vektor relevant wird. 
+			Physikalisch gesehen beschreibt das Kreuzprodukt in der Formel für das E-Feld die Elektronenbewegung, die im Fernfeld vernachlässigt werden kann.  
 
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=0.5\textwidth]{build/spektrum_K1.5_Perioden20_neu_d.pdf}
+			\end{figure}
+
+			Entfernt man hingegen die sinusförmige Modulation bei $r(t\prime )$, dem Abstand zwischen Ladung und Beobachtungspunkt, verschwindet die Harmonische: \\
+			$r(t\prime ) = - \beta^{*} c \cdot t\prime  + \frac{cK^2}{8\omega_{u} \gamma^2}\sin(2\omega_{u} t\prime) = - \beta^{*} c \cdot t\prime  $ . \\
+			Da $r(\prime t)$ in die Exponentialfunktion mit eingeht, hat die Änderung deutlich größere Auswirkungen.
+ 
 		\end{itemize}
 
 
