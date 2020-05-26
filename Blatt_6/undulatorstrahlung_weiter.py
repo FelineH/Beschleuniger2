@@ -130,6 +130,3 @@ for ϑ in np.linspace(0, 2*np.pi/1000, 50):
         #ax.set_xlim(-1,1)
         #ax.set_ylim(-1,1)
         fig.savefig('build/spektrum_{}{}_{}{}_neu.pdf'.format("theta", ϑ, "phi", φ))
-
-    
-   
