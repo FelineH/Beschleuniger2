@@ -29,9 +29,9 @@ bunching = 0
 harmonic = np.linspace(1,51,50) #array with 50 inputs 
 
 #compute the bunchingfactor for the harmonics 1 to 50
-for h in range (1,51,1):   #from 1 to 50
+for h in range(1,51,1):   #from 1 to 50
     for i in range(1,3001,1): #from 1 to 3000
-        sum_function = np.exp(i*2*np.pi*h*x_data_uniform[i-1]) #start with x_data_uniform[i-1] because its an array with indexes form 0 to 2999
+        sum_function = np.exp(1j*2*np.pi*h*x_data_uniform[i-1]) #start with x_data_uniform[i-1] because its an array with indexes form 0 to 2999
         #print(sum_function)
         bunching += sum_function 
         #print(bunching)
