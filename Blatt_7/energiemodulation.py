@@ -10,6 +10,8 @@ if not os.path.isdir('build'):
 #define constants
 N = 3000 #number of electrons
 A = 0.003 #amplitude for 3b) 
+R_56 = 1000 #matrix element for 3c) normed by λ
+
 
 #a)
 ########################################################################################################################################################################
@@ -120,3 +122,115 @@ ax.plot(harmonic, bunching_h, 'o-', color='red')
 ax.set_ylabel(r"$\mathrm{Bunching-Faktor} \, b_{h}$")
 ax.set_xlabel(r"$\mathrm{Harmonische} \, h$")
 fig.savefig('build/bunching_factor_b.pdf')
+
+#c)/d)
+########################################################################################################################################################################
+#chicane
+x_data_uniform_chicane = x_data_uniform + y_data_normal_sinus * R_56 #energy of electrons is sinusoidally distributed
+
+
+#######################################################################
+#changes from task a to b for electron density and bunching factor
+#######################################################################
+#electrondensity
+density_electron_sinus_chicane = x_data_uniform_chicane/N 
+
+#bunching factor
+bunching_h = []
+bunching = 0
+harmonic = np.linspace(1,51,50) #array with 50 inputs 
+
+#compute the bunchingfactor for the harmonics 1 to 50
+for h in range (1,51,1):   #from 1 to 50
+    for i in range(1,3001,1): #from 1 to 3000
+        sum_function = np.exp(1j*2*np.pi*h*x_data_uniform_chicane[i-1]) #start with x_data_uniform[i-1] because its an array with indexes form 0 to 2999
+        #print(sum_function)
+        bunching += sum_function 
+        #print(bunching)
+    bunching_factor = 1/N * np.absolute(bunching) #abs() for absolute value of the exponential function
+    bunching_h.append(bunching_factor)
+#print(bunching_h)
+
+#########################################################################
+#########################################################################
+
+#plot DeltaE/E
+fig, ax = plt.subplots(1, 1)
+plt.scatter(x_data_uniform_chicane,y_data_normal_sinus, marker='.', color="red")
+ax.set_ylabel(r"$ \Delta E/E \, \mathrm{in} \, \%$")
+ax.set_xlabel(r"$ z/\lambda \, \mathrm{in} \, m$")
+ax.set_xlim(0,2)
+ax.set_ylim(-0.01,0.01)
+fig.savefig('build/normalverteilte_Elektronen_d.pdf')
+
+#plot Elektronendichtelectron density
+fig, ax = plt.subplots(1, 1)
+ax.plot(x_data_uniform_chicane, density_electron_sinus_chicane, '-', color="red")
+ax.set_ylabel(r"$ \rho(z/\lambda)$")
+ax.set_xlabel(r"$ z/\lambda \, \mathrm{in} \, m$")
+ax.set_xlim(0,2)
+#ax.set_ylim(-0.01,0.01)
+fig.savefig('build/electron_density_d.pdf')
+
+#plot bunching factor 
+fig, ax = plt.subplots(1, 1)
+ax.plot(harmonic, bunching_h, 'o-', color='red')
+ax.set_ylabel(r"$\mathrm{Bunching-Faktor} \, b_{h}$")
+ax.set_xlabel(r"$\mathrm{Harmonische} \, h$")
+fig.savefig('build/bunching_factor_d.pdf')
+
+#e)/f)
+########################################################################################################################################################################
+#energy deviation
+y_data_normal_sinus_sinus = y_data_normal_sinus + A*np.sin(2*np.pi*x_data_uniform_chicane) #energy of electrons is sinusoidally distributed
+
+
+#######################################################################
+#no changes from task d to e for electron density and bunching factor
+#######################################################################
+#electrondensity
+density_electron_sinus_chicane = x_data_uniform_chicane/N 
+
+#bunching factor
+bunching_h = []
+bunching = 0
+harmonic = np.linspace(1,51,50) #array with 50 inputs 
+
+#compute the bunchingfactor for the harmonics 1 to 50
+for h in range (1,51,1):   #from 1 to 50
+    for i in range(1,3001,1): #from 1 to 3000
+        sum_function = np.exp(1j*2*np.pi*h*x_data_uniform_chicane[i-1]) #start with x_data_uniform[i-1] because its an array with indexes form 0 to 2999
+        #print(sum_function)
+        bunching += sum_function 
+        #print(bunching)
+    bunching_factor = 1/N * np.absolute(bunching) #abs() for absolute value of the exponential function
+    bunching_h.append(bunching_factor)
+#print(bunching_h)
+
+#########################################################################
+#########################################################################
+
+#plot DeltaE/E
+fig, ax = plt.subplots(1, 1)
+plt.scatter(x_data_uniform_chicane,y_data_normal_sinus_sinus, marker='.', color="red")
+ax.set_ylabel(r"$ \Delta E/E \, \mathrm{in} \, \%$")
+ax.set_xlabel(r"$ z/\lambda \, \mathrm{in} \, m$")
+ax.set_xlim(0,2)
+ax.set_ylim(-0.01,0.01)
+fig.savefig('build/normalverteilte_Elektronen_fR1000.pdf')
+
+#plot Elektronendichtelectron density
+fig, ax = plt.subplots(1, 1)
+ax.plot(x_data_uniform_chicane, density_electron_sinus_chicane, '-', color="red")
+ax.set_ylabel(r"$ \rho(z/\lambda)$")
+ax.set_xlabel(r"$ z/\lambda \, \mathrm{in} \, m$")
+ax.set_xlim(0,2)
+#ax.set_ylim(-0.01,0.01)
+fig.savefig('build/electron_density_fR1000.pdf')
+
+#plot bunching factor 
+fig, ax = plt.subplots(1, 1)
+ax.plot(harmonic, bunching_h, 'o-', color='red')
+ax.set_ylabel(r"$\mathrm{Bunching-Faktor} \, b_{h}$")
+ax.set_xlabel(r"$\mathrm{Harmonische} \, h$")
+fig.savefig('build/bunching_factor_fR1000.pdf')
