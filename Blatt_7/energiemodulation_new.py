@@ -75,30 +75,35 @@ harmonic = np.linspace(1,51,50) #array with 50 inputs
 #print(bunchingfactor)
 
 #plot DeltaE/E
-fig, ax = plt.subplots(1, 1)
-plt.scatter(x_data_uniform,y_data_normal, marker='.', color="red")
-ax.set_ylabel(r"$ \Delta E/E \, \mathrm{in} \, \%$")
-ax.set_xlabel(r"$ z/\lambda \, \mathrm{in} \, m$")
-ax.set_xlim(0,2)
-ax.set_ylim(-0.01,0.01)
-fig.savefig('build/normalverteilte_Elektronen_a.pdf')
+fig, ax = plt.subplots(nrows=3, ncols=1,figsize=(15,15))
+ax[0].scatter(x_data_uniform,y_data_normal, marker='.', color="red")
+ax[0].set_ylabel(r"$ \Delta E/E$")
+ax[0].set_xlabel(r"$ z/\lambda \, \mathrm{in} \, m$")
+ax[0].set_xlim(0,2)
+ax[0].set_ylim(-0.01,0.01)
+#fig.savefig('build/normalverteilte_Elektronen_a.pdf')
 
 #plot Elektronendichtelectron density
-fig, ax = plt.subplots(1, 1)
+#fig, ax = plt.subplots(1, 1)
 #ax.plot(x_data_uniform, density_electron, '-', color="red")
-ax.plot(dichte[0], dichte[1], color="red")
-ax.set_ylabel(r"$ \rho(z/\lambda)$")
-ax.set_xlabel(r"$ z/\lambda \, \mathrm{in} \, m$")
-ax.set_xlim(0,2)
+ax[1].plot(dichte[0], dichte[1], color="red")
+ax[1].set_ylabel(r"$ \rho(z/\lambda) \, \mathrm{in} \, 1/m$")
+ax[1].set_xlabel(r"$ z/\lambda \, \mathrm{in} \, m$")
+ax[1].set_xlim(0,2)
 #ax.set_ylim(-0.01,0.01)
-fig.savefig('build/electron_density_a.pdf')
+#fig.savefig('build/electron_density_a.pdf')
 
 #plot bunching factor 
-fig, ax = plt.subplots(1, 1)
-ax.plot(harmonic, bunchingfactor, 'o-', color='red')
-ax.set_ylabel(r"$\mathrm{Bunching-Faktor} \, b_{h}$")
-ax.set_xlabel(r"$\mathrm{Harmonische} \, h$")
-fig.savefig('build/bunching_factor_a.pdf')
+#fig, ax = plt.subplots(1, 1)
+ax[2].plot(harmonic, bunchingfactor, 'o-', color='red')
+ax[2].set_ylabel(r"$\mathrm{Bunching-Faktor} \, b_{h}$")
+ax[2].set_xlabel(r"$\mathrm{Harmonische} \, h$")
+#fig.savefig('build/bunching_factor_a.pdf')
+
+plt.title('Zufällige Energieverteilung')
+plt.tight_layout()
+plt.savefig('build/a.pdf')
+
 
 #b)
 ########################################################################################################################################################################
@@ -118,29 +123,33 @@ bunchingfactor_b = bunching(electrons_sinus)
 harmonic = np.linspace(1,51,50) #array with 50 inputs
 
 #plot DeltaE/E
-fig, ax = plt.subplots(1, 1)
-plt.scatter(x_data_uniform,y_data_normal_sinus, marker='.', color="red")
-ax.set_ylabel(r"$ \Delta E/E \, \mathrm{in} \, \%$")
-ax.set_xlabel(r"$ z/\lambda \, \mathrm{in} \, m$")
-ax.set_xlim(0,2)
-ax.set_ylim(-0.01,0.01)
-fig.savefig('build/normalverteilte_Elektronen_b.pdf')
+fig, ax = plt.subplots(nrows=3, ncols=1,figsize=(15,15))
+ax[0].scatter(x_data_uniform,y_data_normal_sinus, marker='.', color="red")
+ax[0].set_ylabel(r"$ \Delta E/E$")
+ax[0].set_xlabel(r"$ z/\lambda \, \mathrm{in} \, m$")
+ax[0].set_xlim(0,2)
+ax[0].set_ylim(-0.01,0.01)
+#fig.savefig('build/normalverteilte_Elektronen_b.pdf')
 
 #plot electron density
-fig, ax = plt.subplots(1, 1)
-ax.plot(dichte_b[0], dichte_b[1], '-', color="red")
-ax.set_ylabel(r"$ \rho(z/\lambda)$")
-ax.set_xlabel(r"$ z/\lambda \, \mathrm{in} \, m$")
-ax.set_xlim(0,2)
+#fig, ax = plt.subplots(1, 1)
+ax[1].plot(dichte_b[0], dichte_b[1], '-', color="red")
+ax[1].set_ylabel(r"$ \rho(z/\lambda) \, \mathrm{in} \, 1/m$")
+ax[1].set_xlabel(r"$ z/\lambda \, \mathrm{in} \, m$")
+ax[1].set_xlim(0,2)
 #ax.set_ylim(-0.01,0.01)
-fig.savefig('build/electron_density_b.pdf')
+#fig.savefig('build/electron_density_b.pdf')
 
 #plot bunching factor 
-fig, ax = plt.subplots(1, 1)
-ax.plot(harmonic, bunchingfactor_b, 'o-', color='red')
-ax.set_ylabel(r"$\mathrm{Bunching-Faktor} \, b_{h}$")
-ax.set_xlabel(r"$\mathrm{Harmonische} \, h$")
-fig.savefig('build/bunching_factor_b.pdf')
+#fig, ax = plt.subplots(1, 1)
+ax[2].plot(harmonic, bunchingfactor_b, 'o-', color='red')
+ax[2].set_ylabel(r"$\mathrm{Bunching-Faktor} \, b_{h}$")
+ax[2].set_xlabel(r"$\mathrm{Harmonische} \, h$")
+#fig.savefig('build/bunching_factor_b.pdf')
+
+plt.title('Energiemodulation')
+plt.tight_layout()
+plt.savefig('build/b.pdf')
 
 #c)/d)
 ########################################################################################################################################################################
@@ -161,29 +170,33 @@ harmonic = np.linspace(1,51,50) #array with 50 inputs
 #########################################################################
 
 #plot DeltaE/E
-fig, ax = plt.subplots(1, 1)
-plt.scatter(x_data_uniform_chicane,y_data_normal_sinus, marker='.', color="red")
-ax.set_ylabel(r"$ \Delta E/E \, \mathrm{in} \, \%$")
-ax.set_xlabel(r"$ z/\lambda \, \mathrm{in} \, m$")
-ax.set_xlim(0,2)
-ax.set_ylim(-0.01,0.01)
-fig.savefig('build/normalverteilte_Elektronen_d.pdf')
+fig, ax = plt.subplots(nrows=3, ncols=1,figsize=(15,15))
+ax[0].scatter(x_data_uniform_chicane,y_data_normal_sinus, marker='.', color="red")
+ax[0].set_ylabel(r"$ \Delta E/E $")
+ax[0].set_xlabel(r"$ z/\lambda \, \mathrm{in} \, m$")
+ax[0].set_xlim(0,2)
+ax[0].set_ylim(-0.01,0.01)
+#fig.savefig('build/normalverteilte_Elektronen_d.pdf')
 
 #plot electron density
-fig, ax = plt.subplots(1, 1)
-ax.plot(dichte_cd[0], dichte_cd[1], '-', color="red")
-ax.set_ylabel(r"$ \rho(z/\lambda)$")
-ax.set_xlabel(r"$ z/\lambda \, \mathrm{in} \, m$")
-ax.set_xlim(0,2)
+#fig, ax = plt.subplots(1, 1)
+ax[1].plot(dichte_cd[0], dichte_cd[1], '-', color="red")
+ax[1].set_ylabel(r"$ \rho(z/\lambda) \, \mathrm{in} \, 1/m$")
+ax[1].set_xlabel(r"$ z/\lambda \, \mathrm{in} \, m$")
+ax[1].set_xlim(0,2)
 #ax.set_ylim(-0.01,0.01)
-fig.savefig('build/electron_density_d.pdf')
+#fig.savefig('build/electron_density_d.pdf')
 
 #plot bunching factor 
-fig, ax = plt.subplots(1, 1)
-ax.plot(harmonic, bunchingfactor_cd, 'o-', color='red')
-ax.set_ylabel(r"$\mathrm{Bunching-Faktor} \, b_{h}$")
-ax.set_xlabel(r"$\mathrm{Harmonische} \, h$")
-fig.savefig('build/bunching_factor_d.pdf')
+#fig, ax = plt.subplots(1, 1)
+ax[2].plot(harmonic, bunchingfactor_cd, 'o-', color='red')
+ax[2].set_ylabel(r"$\mathrm{Bunching-Faktor} \, b_{h}$")
+ax[2].set_xlabel(r"$\mathrm{Harmonische} \, h$")
+#fig.savefig('build/bunching_factor_d.pdf')
+
+plt.title('Schikane und Dichtemodulation')
+plt.tight_layout()
+plt.savefig('build/cd.pdf')
 
 #e)/f)
 ########################################################################################################################################################################
@@ -204,26 +217,30 @@ harmonic = np.linspace(1,51,50) #array with 50 inputs
 #########################################################################
 
 #plot DeltaE/E
-fig, ax = plt.subplots(1, 1)
-plt.scatter(x_data_uniform_chicane,y_data_normal_sinus_sinus, marker='.', color="red")
-ax.set_ylabel(r"$ \Delta E/E \, \mathrm{in} \, \%$")
-ax.set_xlabel(r"$ z/\lambda \, \mathrm{in} \, m$")
-ax.set_xlim(0,2)
-ax.set_ylim(-0.01,0.01)
-fig.savefig('build/normalverteilte_Elektronen_fR1000.pdf')
+fig, ax = plt.subplots(nrows=3, ncols=1,figsize=(15,15))
+ax[0].scatter(x_data_uniform_chicane,y_data_normal_sinus_sinus, marker='.', color="red")
+ax[0].set_ylabel(r"$ \Delta E/E$")
+ax[0].set_xlabel(r"$ z/\lambda \, \mathrm{in} \, m$")
+ax[0].set_xlim(0,2)
+ax[0].set_ylim(-0.01,0.01)
+#fig.savefig('build/normalverteilte_Elektronen_fR1000.pdf')
 
 #plot Elektronendichtelectron density
-fig, ax = plt.subplots(1, 1)
-ax.plot(dichte_ef[0], dichte_ef[1], '-', color="red")
-ax.set_ylabel(r"$ \rho(z/\lambda)$")
-ax.set_xlabel(r"$ z/\lambda \, \mathrm{in} \, m$")
-ax.set_xlim(0,2)
+#fig, ax = plt.subplots(1, 1)
+ax[1].plot(dichte_ef[0], dichte_ef[1], '-', color="red")
+ax[1].set_ylabel(r"$ \rho(z/\lambda) \, \mathrm{in} \, 1/m$")
+ax[1].set_xlabel(r"$ z/\lambda \, \mathrm{in} \, m$")
+ax[1].set_xlim(0,2)
 #ax.set_ylim(-0.01,0.01)
-fig.savefig('build/electron_density_fR1000.pdf')
+#fig.savefig('build/electron_density_fR1000.pdf')
 
 #plot bunching factor 
-fig, ax = plt.subplots(1, 1)
-ax.plot(harmonic, bunchingfactor_ef, 'o-', color='red')
-ax.set_ylabel(r"$\mathrm{Bunching-Faktor} \, b_{h}$")
-ax.set_xlabel(r"$\mathrm{Harmonische} \, h$")
-fig.savefig('build/bunching_factor_fR1000.pdf')
+#fig, ax = plt.subplots(1, 1)
+ax[2].plot(harmonic, bunchingfactor_ef, 'o-', color='red')
+ax[2].set_ylabel(r"$\mathrm{Bunching-Faktor} \, b_{h}$")
+ax[2].set_xlabel(r"$\mathrm{Harmonische} \, h$")
+#fig.savefig('build/bunching_factor_fR1000.pdf')
+
+plt.title('Zwei Schikanen und Dichtemodulation')
+plt.tight_layout()
+plt.savefig('build/ef.pdf')
