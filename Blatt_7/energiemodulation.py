@@ -10,7 +10,7 @@ if not os.path.isdir('build'):
 #define constants
 N = 3000 #number of electrons
 A = 0.003 #amplitude for 3b) 
-R_56 = 1000 #matrix element for 3c) normed by λ
+R_56 = 1200 #matrix element for 3c) normed by λ
 
 
 #a)
@@ -161,7 +161,7 @@ ax.set_ylabel(r"$ \Delta E/E \, \mathrm{in} \, \%$")
 ax.set_xlabel(r"$ z/\lambda \, \mathrm{in} \, m$")
 ax.set_xlim(0,2)
 ax.set_ylim(-0.01,0.01)
-fig.savefig('build/normalverteilte_Elektronen_d.pdf')
+fig.savefig('build/normalverteilte_Elektronen_cR1200.pdf')
 
 #plot Elektronendichtelectron density
 fig, ax = plt.subplots(1, 1)
@@ -170,14 +170,14 @@ ax.set_ylabel(r"$ \rho(z/\lambda)$")
 ax.set_xlabel(r"$ z/\lambda \, \mathrm{in} \, m$")
 ax.set_xlim(0,2)
 #ax.set_ylim(-0.01,0.01)
-fig.savefig('build/electron_density_d.pdf')
+fig.savefig('build/electron_density_cR1200.pdf')
 
 #plot bunching factor 
 fig, ax = plt.subplots(1, 1)
 ax.plot(harmonic, bunching_h, 'o-', color='red')
 ax.set_ylabel(r"$\mathrm{Bunching-Faktor} \, b_{h}$")
 ax.set_xlabel(r"$\mathrm{Harmonische} \, h$")
-fig.savefig('build/bunching_factor_d.pdf')
+fig.savefig('build/bunching_factor_cR1200.pdf')
 
 #e)/f)
 ########################################################################################################################################################################
@@ -217,7 +217,7 @@ ax.set_ylabel(r"$ \Delta E/E \, \mathrm{in} \, \%$")
 ax.set_xlabel(r"$ z/\lambda \, \mathrm{in} \, m$")
 ax.set_xlim(0,2)
 ax.set_ylim(-0.01,0.01)
-fig.savefig('build/normalverteilte_Elektronen_fR1000.pdf')
+fig.savefig('build/normalverteilte_Elektronen_fR1200.pdf')
 
 #plot Elektronendichtelectron density
 fig, ax = plt.subplots(1, 1)
@@ -226,11 +226,11 @@ ax.set_ylabel(r"$ \rho(z/\lambda)$")
 ax.set_xlabel(r"$ z/\lambda \, \mathrm{in} \, m$")
 ax.set_xlim(0,2)
 #ax.set_ylim(-0.01,0.01)
-fig.savefig('build/electron_density_fR1000.pdf')
+fig.savefig('build/electron_density_fR1200.pdf')
 
 #plot bunching factor 
 fig, ax = plt.subplots(1, 1)
 ax.plot(harmonic, bunching_h, 'o-', color='red')
 ax.set_ylabel(r"$\mathrm{Bunching-Faktor} \, b_{h}$")
 ax.set_xlabel(r"$\mathrm{Harmonische} \, h$")
-fig.savefig('build/bunching_factor_fR1000.pdf')
+fig.savefig('build/bunching_factor_fR1200.pdf')
