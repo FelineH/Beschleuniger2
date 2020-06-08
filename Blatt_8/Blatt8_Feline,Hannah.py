@@ -11,7 +11,7 @@ c = 3e8 #m/s
 e = 1.6e-19 #C
 
 N = 100 #anzahl elektronen
-x = 0.1 #m, wegschritte
+x = 0.01 #m, wegschritte
 
 a1 = 4 * np.pi / λ_u
 a2 = e * E_0 * K / (2 * m_e * c**2 * ɣ**2)
