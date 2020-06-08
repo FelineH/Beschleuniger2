@@ -29,7 +29,7 @@ def dη(Ψ, a2):
 
 #Startwerte definieren
 Ψ = np.zeros((N, 1000))
-Ψ[:,0] = np.random.uniform(-np.pi, 1*np.pi, N) #gleichverteilte Phase
+Ψ[:,0] = np.random.uniform(0, 2*np.pi, N) #gleichverteilte Phase, von 0 bis 2pi, weil es schöner dargestellt wird, ändert nichts an berechnung
 η = np.zeros((N, 1000))
 
 for index, k in enumerate(np.linspace(-0.01, 0.01, 21)):
