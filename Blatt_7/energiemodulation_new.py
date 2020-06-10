@@ -24,17 +24,26 @@ def rho(elektronen,resolution = 500):
     return np.array((x, dichte/np.max(dichte))) # shape (2, 500)
 
 #bunching factor
+#def bunching(elektronen): 
+#    bunching_h = []
+#    bunching = 0
+#    #harmonic = np.linspace(1,51,50) #array with 50 inputs 
+#    #compute the bunchingfactor for the harmonics 1 to 50
+#    for h in range (1,51,1):   #from 1 to 50
+#        for i in range(1,3001,1): #from 1 to 3000
+#            sum_function = np.exp(1j*2*np.pi*h*elektronen[0,i-1]) #start with x_data_uniform[i-1] because its an array with indexes form 0 to 2999 with electrons[0,i] = x_data_uniform[i-1]
+#            bunching += sum_function 
+#        bunching_factor = 1/N * np.absolute(bunching) #abs() for absolute value of the exponential function
+#        bunching_h.append(bunching_factor)
+#    return bunching_h
+
 def bunching(elektronen): 
     bunching_h = []
     bunching = 0
-    #harmonic = np.linspace(1,51,50) #array with 50 inputs 
-    #compute the bunchingfactor for the harmonics 1 to 50
-    for h in range (1,51,1):   #from 1 to 50
-        for i in range(1,3001,1): #from 1 to 3000
-            sum_function = np.exp(1j*2*np.pi*h*elektronen[0,i-1]) #start with x_data_uniform[i-1] because its an array with indexes form 0 to 2999 with electrons[0,i] = x_data_uniform[i-1]
-            bunching += sum_function 
-        bunching_factor = 1/N * np.absolute(bunching) #abs() for absolute value of the exponential function
-        bunching_h.append(bunching_factor)
+    for h in range (1,51,1):
+        for i in range(1,3001,1):
+            bunching = 1/N*abs(np.sum(np.exp(1.j*2*np.pi*h*elektronen[0,i-1])))
+        bunching_h.append(bunching)
     return bunching_h
 
 ##bunching factor
@@ -58,13 +67,12 @@ def bunching(elektronen):
 #energy deviation
 x_data_uniform = np.random.uniform(0,2,N) #random homogenous distribution of electron in longitudinal direction
 y_data_normal = norm.rvs(size =N, loc=0, scale=0.001) 
-#y_data_normal= np.random.normal(0, 0.001, N)
-#generate normally distributed random variable using scipy.stats module's norms.rvs(); loc argument corresponds to the meean
-#and scale to standard deviation and size to the number of random variates
+        #y_data_normal= np.random.normal(0, 0.001, N)
+        #generate normally distributed random variable using scipy.stats module's norms.rvs(); loc argument corresponds to the meean
+        #and scale to standard deviation and size to the number of random variates
 
 electrons = np.array([x_data_uniform, y_data_normal]) # shape (2,3000)
-#print(electrons[0,:]) 
-#print(x_data_uniform)
+#electrons[0,:]) is the same as (x_data_uniform)
 
 #electrondensitiy for a)
 dichte = rho(electrons) # to set in plot function
@@ -72,13 +80,13 @@ dichte = rho(electrons) # to set in plot function
 #bunchingfactor for a)
 bunchingfactor = bunching(electrons)
 harmonic = np.linspace(1,51,50) #array with 50 inputs
-#print(bunchingfactor)
+print(bunchingfactor)
 
 #plot DeltaE/E
 fig, ax = plt.subplots(nrows=3, ncols=1,figsize=(15,15))
 ax[0].scatter(x_data_uniform,y_data_normal, marker='.', color="red")
 ax[0].set_ylabel(r"$ \Delta E/E$")
-ax[0].set_xlabel(r"$ z/\lambda \, \mathrm{in} \, m$")
+ax[0].set_xlabel(r"$ z/\lambda$")
 ax[0].set_xlim(0,2)
 ax[0].set_ylim(-0.01,0.01)
 #fig.savefig('build/normalverteilte_Elektronen_a.pdf')
@@ -87,8 +95,8 @@ ax[0].set_ylim(-0.01,0.01)
 #fig, ax = plt.subplots(1, 1)
 #ax.plot(x_data_uniform, density_electron, '-', color="red")
 ax[1].plot(dichte[0], dichte[1], color="red")
-ax[1].set_ylabel(r"$ \rho(z/\lambda) \, \mathrm{in} \, 1/m$")
-ax[1].set_xlabel(r"$ z/\lambda \, \mathrm{in} \, m$")
+ax[1].set_ylabel(r"$ \rho(z/\lambda)$")
+ax[1].set_xlabel(r"$ z/\lambda$")
 ax[1].set_xlim(0,2)
 #ax.set_ylim(-0.01,0.01)
 #fig.savefig('build/electron_density_a.pdf')
@@ -126,7 +134,7 @@ harmonic = np.linspace(1,51,50) #array with 50 inputs
 fig, ax = plt.subplots(nrows=3, ncols=1,figsize=(15,15))
 ax[0].scatter(x_data_uniform,y_data_normal_sinus, marker='.', color="red")
 ax[0].set_ylabel(r"$ \Delta E/E$")
-ax[0].set_xlabel(r"$ z/\lambda \, \mathrm{in} \, m$")
+ax[0].set_xlabel(r"$ z/\lambda $")
 ax[0].set_xlim(0,2)
 ax[0].set_ylim(-0.01,0.01)
 #fig.savefig('build/normalverteilte_Elektronen_b.pdf')
@@ -134,8 +142,8 @@ ax[0].set_ylim(-0.01,0.01)
 #plot electron density
 #fig, ax = plt.subplots(1, 1)
 ax[1].plot(dichte_b[0], dichte_b[1], '-', color="red")
-ax[1].set_ylabel(r"$ \rho(z/\lambda) \, \mathrm{in} \, 1/m$")
-ax[1].set_xlabel(r"$ z/\lambda \, \mathrm{in} \, m$")
+ax[1].set_ylabel(r"$ \rho(z/\lambda)$")
+ax[1].set_xlabel(r"$ z/\lambda$")
 ax[1].set_xlim(0,2)
 #ax.set_ylim(-0.01,0.01)
 #fig.savefig('build/electron_density_b.pdf')
@@ -173,7 +181,7 @@ harmonic = np.linspace(1,51,50) #array with 50 inputs
 fig, ax = plt.subplots(nrows=3, ncols=1,figsize=(15,15))
 ax[0].scatter(x_data_uniform_chicane,y_data_normal_sinus, marker='.', color="red")
 ax[0].set_ylabel(r"$ \Delta E/E $")
-ax[0].set_xlabel(r"$ z/\lambda \, \mathrm{in} \, m$")
+ax[0].set_xlabel(r"$ z/\lambda$")
 ax[0].set_xlim(0,2)
 ax[0].set_ylim(-0.01,0.01)
 #fig.savefig('build/normalverteilte_Elektronen_d.pdf')
@@ -181,8 +189,8 @@ ax[0].set_ylim(-0.01,0.01)
 #plot electron density
 #fig, ax = plt.subplots(1, 1)
 ax[1].plot(dichte_cd[0], dichte_cd[1], '-', color="red")
-ax[1].set_ylabel(r"$ \rho(z/\lambda) \, \mathrm{in} \, 1/m$")
-ax[1].set_xlabel(r"$ z/\lambda \, \mathrm{in} \, m$")
+ax[1].set_ylabel(r"$ \rho(z/\lambda)$")
+ax[1].set_xlabel(r"$ z/\lambda $")
 ax[1].set_xlim(0,2)
 #ax.set_ylim(-0.01,0.01)
 #fig.savefig('build/electron_density_d.pdf')
@@ -220,7 +228,7 @@ harmonic = np.linspace(1,51,50) #array with 50 inputs
 fig, ax = plt.subplots(nrows=3, ncols=1,figsize=(15,15))
 ax[0].scatter(x_data_uniform_chicane,y_data_normal_sinus_sinus, marker='.', color="red")
 ax[0].set_ylabel(r"$ \Delta E/E$")
-ax[0].set_xlabel(r"$ z/\lambda \, \mathrm{in} \, m$")
+ax[0].set_xlabel(r"$ z/\lambda $")
 ax[0].set_xlim(0,2)
 ax[0].set_ylim(-0.01,0.01)
 #fig.savefig('build/normalverteilte_Elektronen_fR1000.pdf')
@@ -228,8 +236,8 @@ ax[0].set_ylim(-0.01,0.01)
 #plot Elektronendichtelectron density
 #fig, ax = plt.subplots(1, 1)
 ax[1].plot(dichte_ef[0], dichte_ef[1], '-', color="red")
-ax[1].set_ylabel(r"$ \rho(z/\lambda) \, \mathrm{in} \, 1/m$")
-ax[1].set_xlabel(r"$ z/\lambda \, \mathrm{in} \, m$")
+ax[1].set_ylabel(r"$ \rho(z/\lambda) $")
+ax[1].set_xlabel(r"$ z/\lambda $")
 ax[1].set_xlim(0,2)
 #ax.set_ylim(-0.01,0.01)
 #fig.savefig('build/electron_density_fR1000.pdf')
