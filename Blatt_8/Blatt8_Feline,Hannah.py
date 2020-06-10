@@ -1,6 +1,10 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+import os 
+if not os.path.isdir('build'):
+    os.mkdir('build')
+
 #Konstanten
 λ_u = 0.2 #m
 E_0 = 1e9 #V/m
@@ -60,7 +64,7 @@ for index, k in enumerate(np.linspace(-0.01, 0.01, 21)):
         plt.title(r"$Bewegung der Elektronen im Phasenraum, η_0={}$".format(k))
         plt.xlabel(r"$ Ψ/ rad$")
         plt.ylabel(r"$η$")
-        plt.savefig(r"Blatt8_Aufgabe3_η{}_Feline,Hannah.pdf".format(k))
+        plt.savefig(r"build/Blatt8_Aufgabe3_η{}_Feline,Hannah.pdf".format(k))
         plt.clf()
 
 #Plotten der c
@@ -68,5 +72,5 @@ plt.plot(np.linspace(-0.01, 0.01, 21), gain)
 plt.title(r"Gainkurve")
 plt.xlabel(r" Energieänderung")
 plt.ylabel(r"$η_0$")
-plt.savefig(r"Blatt8_Aufgabe3c_Feline,Hannah.pdf")
+plt.savefig(r"build/Blatt8_Aufgabe3c_Feline,Hannah.pdf")
 
