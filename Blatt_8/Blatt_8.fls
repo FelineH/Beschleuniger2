@@ -3,8 +3,8 @@ INPUT /etc/texmf/web2c/texmf.cnf
 INPUT /usr/share/texmf/web2c/texmf.cnf
 INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf
 INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
-INPUT /home/hannah/Dokumente/Uni/Beschleunigerphysik2/Beschleuniger2/Blatt_8/Blatt_7.tex
-OUTPUT /home/hannah/Dokumente/Uni/Beschleunigerphysik2/Beschleuniger2/Blatt_8/Blatt_7.log
+INPUT /home/hannah/Dokumente/Uni/Beschleunigerphysik2/Beschleuniger2/Blatt_8/Blatt_8.tex
+OUTPUT /home/hannah/Dokumente/Uni/Beschleunigerphysik2/Beschleuniger2/Blatt_8/Blatt_8.log
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/size11.clo
@@ -79,9 +79,9 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/translator/translator.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/translator/translator.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/float/float.sty
-INPUT /home/hannah/Dokumente/Uni/Beschleunigerphysik2/Beschleuniger2/Blatt_8/Blatt_7.aux
-INPUT /home/hannah/Dokumente/Uni/Beschleunigerphysik2/Beschleuniger2/Blatt_8/Blatt_7.aux
-OUTPUT /home/hannah/Dokumente/Uni/Beschleunigerphysik2/Beschleuniger2/Blatt_8/Blatt_7.aux
+INPUT /home/hannah/Dokumente/Uni/Beschleunigerphysik2/Beschleuniger2/Blatt_8/Blatt_8.aux
+INPUT /home/hannah/Dokumente/Uni/Beschleunigerphysik2/Beschleuniger2/Blatt_8/Blatt_8.aux
+OUTPUT /home/hannah/Dokumente/Uni/Beschleunigerphysik2/Beschleuniger2/Blatt_8/Blatt_8.aux
 INPUT /usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT /usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT /usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
@@ -157,9 +157,9 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt8.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
-OUTPUT /home/hannah/Dokumente/Uni/Beschleunigerphysik2/Beschleuniger2/Blatt_8/Blatt_7.pdf
+OUTPUT /home/hannah/Dokumente/Uni/Beschleunigerphysik2/Beschleuniger2/Blatt_8/Blatt_8.pdf
 INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
-INPUT /home/hannah/Dokumente/Uni/Beschleunigerphysik2/Beschleuniger2/Blatt_8/Blatt_7.aux
+INPUT /home/hannah/Dokumente/Uni/Beschleunigerphysik2/Beschleuniger2/Blatt_8/Blatt_8.aux
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
