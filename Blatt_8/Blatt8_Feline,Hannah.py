@@ -56,7 +56,7 @@ for index, k in enumerate(np.linspace(-0.01, 0.01, 21)):
         #if Ψ[:,i] > np.pi:
         #    Ψ[:,i] = Ψ[:,i] - 2*np.pi #wertebereich von -pi bis pi, funktioniert nicht mit arrays
         η[:,i] = η[:,i-1] + 1/6 * (k1+ 2*k2 + 2*k3 + k4)
-    gain[index] = np.mean(η[:,-1]-η[:,1])
+    gain[index] = np.mean(η[:,-1]-η[:,0])
 
     #Plotten von a und b
     if k == 0 or k == 0.003:
