@@ -1,6 +1,11 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+import os 
+if not os.path.isdir('build'):
+    os.mkdir('build')
+
+
 #Konstanten
 λ_u = 0.027 #m
 K = 1.19
@@ -78,14 +83,14 @@ for n in range(1, 7):
     plt.title(r"$Bewegung der Elektronen im Phasenraum, s={}m$".format(n))
     plt.xlabel(r"$ Ψ/ rad$")
     plt.ylabel(r"$η$")
-    plt.savefig(r"Blatt8_Aufgabe3_s{}_Feline,Hannah.pdf".format(n))
+    plt.savefig(r"build/Blatt9_Aufgabe3_s{}_Feline,Hannah.pdf".format(n))
     plt.clf()
 
 plt.plot(np.linspace(0,6, num=6000), leistung)
 plt.title(r"Leistung, E_0={},n_e={}".format(E[0],n_e))
-plt.xlabel(r"$ s/ m")
+plt.xlabel(r"$ s/ m $")
 plt.ylabel(r"$η$")
-plt.savefig(r"Leistung,E_0={},n_e={}.pdf".format(E[0],n_e))
+plt.savefig(r"build/Leistung,E_0={},n_e={}.pdf".format(E[0],n_e))
 
 
 

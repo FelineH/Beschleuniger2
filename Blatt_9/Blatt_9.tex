@@ -18,12 +18,14 @@
     \section*{Aufgabe 1}
 	\begin{itemize}
 		\item[a)] 
-			Der Wellenlängenbereich wird beim Seeding hauptsächlich durch die Wellenlänge des Seed-Lasers bestimmt. 
+			Der Wellenlängenbereich wird beim Seeding hauptsächlich durch die Wellenlänge des Seed-Lasers bestimmt. Ein weiterer Faktor ist die Energiebreite des Elektronenpaketes.
 		\item[b)]
 			Der Freie-Elektronen-Laser ist an sich kein Laser. Zwar wird beim FEL das Synchrotronlicht in seiner Intensität verstärkt, indem durch eine 
 			externe Lichtquelle (Seeding) oder durch selbstverstärkte spontane Abstrahlung (SASE) die Elektronenpakete in Kleinstgruppen angeordnet werden
 			und damit Strahlung der Elektronen in den Kleinstgruppen sich kohärent überlagert. Jedoch findet keine stimulierte Emission wie bei einem Laser statt.
-			Das ausgesendete Licht eines FEL besitzt Lasereigenschaften, auch wenn es per Definition kein Laser ist.
+			Das ausgesendete Licht eines FEL besitzt Lasereigenschaften, auch wenn es per Definition kein Laser ist. Man kann auch argumentieren, dass tatsächlich eine stimulierte Emission stattfindet
+			(Definitionssache!!!).
+
 	\end{itemize}
 
 
@@ -41,19 +43,52 @@
 				K &= 2, \\
 				\lambda_{U} &= \SI{25}{\centimetre} = \SI{0.25}{\metre}, \\
 				n_{e} &= \frac{n}{V}, \\
-				n &= \frac{Q}{e} = \frac{I \cdot U}{c \cdot e} = \frac{\SI{20}{\milliampere} \SI{115.2}{\metre}}{c \cdot e} = 4.8*10^{10}, \\
+				n &= \frac{Q}{e} = \frac{I \cdot U}{c \cdot e} = \frac{ \SI{20}{\milliampere} \SI{115.2}{\metre}}{c \cdot e} = 4.8*10^{10}, \\
 				V &= \sigma_{x} \cdot \sigma_{y} \cdot \sigma_{z}, \\
 				\sigma_{x,y} &= \sqrt{\epsilon_{x,y} \cdot \beta}, \\
 				\sigma_{x} &= \SI{1.265e-4}{\metre}, \\
 				\sigma_{y} &= \SI{3.162e-5}{\metre}, \\
 				\sigma_{z} &= c \cdot \sigma_{t} = \SI{0.03}{\metre}, \\
-				n &= \frac{4.8*10^10}{  \SI{1.265e-4}{\metre} \cdot \SI{3.162e-5}{\meter} \cdot \SI{0.03}{\metre} } = 4.0*10^{18} \, 1/m^{3}
+				n &= \frac{4.8*10^10}{  \SI{1.265e-4}{\metre} \cdot \SI{3.162e-5}{\meter} \cdot \SI{0.03}{\metre} } = 4.0*10^{20} \, 1/m^{3}
 			\end{align*}
-			$L_{g} = \SI{11.1}{\metre}$
+			$L_{g} = \SI{2.45}{\metre}$
 	\end{itemize}
 
 	\section*{Aufgabe 3}
+	
+	Die Bilder ähneln den Bildern im Skript S.47. Die Phasenraumverteilung der Elektronen am Anfang des Undulators $\SI{0}{\metre}$ zeigt Bild \ref{fig:0meter}. Mit zunehmeneder Wegstrecke von $\SI{0}{\metre}$ 
+	bis $\SI{6}{\metre}$ setzt Verstärkungsprozess ein und es bilden sich Wirbel aus, die die Sättigung anzeigen \ref{fig6meter}.
+	Die Gain-Kurve kann durch höheres E-Feld nach vorne verschoben werden.
 
+	\begin{figure}
+		\includegraphics[width=\textwidth]{build/Blatt9_Aufgabe3_s1_Feline,Hannah.pdf}
+		\centering
+		\label{fig:0meter}
+	\end{figure}
+
+	\begin{figure}
+		\includegraphics[width=\textwidth]{build/Blatt9_Aufgabe3_s4_Feline,Hannah.pdf}
+		\centering
+		\label{fig:4meter}
+	\end{figure}
+
+	\begin{figure}
+		\includegraphics[width=\textwidth]{build/Blatt9_Aufgabe3_s6_Feline,Hannah.pdf}
+		\centering
+		\label{fig:6meter}
+	\end{figure}
+
+ 	\begin{figure}
+		\includegraphics[width=\textwidth]{build/Leistung,E_0=(1000000+0j),n_e=1e+22.pdf}
+		\centering
+		\caption{Zunächst zeigt sich ein exponentieller Anstieg, der in eine Sättigung übergeht. Nach dem Verstärkungsmaximum würde man theoretisch eine Oszillation beobachten mit weiter zunehmender Wegstrecke}
+		\label{fig:gain}
+	\end{figure}
+
+	Bei der Variation der Elektronendichte fällt auf, 
+	dass bei höherer Dichte der Maximalwert früher erreicht wird.
+	Das anfängliche E-Feld beeiflusst die höhe der Energieänderung.
+	Es fällt auf, dass bei mehrfachem Durchlaufen des Programms, sich die Gainkurven trotz gleicher Parameter leicht unterscheiden.
 
 \end{document}
 
