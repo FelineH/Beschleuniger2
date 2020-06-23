@@ -9,5 +9,7 @@ build/
 *.toc
 _pycache_/
 *.vsdx
+*.fdb_latexmk
+*.fls
 
 #*-Operator steht für beliebig lange Zeichenkette
