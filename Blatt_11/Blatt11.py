@@ -40,4 +40,6 @@ for index, arbeitspunkt in enumerate(np.linspace(3.05, 3.95, 180)):
 #ax.set_ylabel(r"FFT-Signal")
 #fig3.savefig(r"Signal_Zeit_FFT.pdf")
 plt.plot(np.linspace(3.05, 3.95, 180), rate)
+plt.ylabel("Anstiegs-/Abfallrate s")
+plt.xlabel("Arbeitspunkt")
 plt.savefig("Arbeitspunkt.pdf")
