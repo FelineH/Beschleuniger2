@@ -4,7 +4,7 @@ import scipy.constants as const
 
 T0 = 384e-9 #s
 I = 10e-3 #A
-E = 1.5e9 #eV
+E = 1.5e9 * const.e #eV
 sigma_t = 40e-12 #s
 r = 0.01 #m
 sigma = 1.4e6 #Ohm⁻¹m⁻¹
@@ -19,10 +19,10 @@ L = c * T0
 
 rate = np.zeros(180)
     
-for index, arbeitspunkt in enumerate(np.linspace(3.05, 3.95, 180)):
+for index, arbeitspunkt in enumerate(np.linspace(5.05, 5.95, 180)):
     omega_b = omega_0 * arbeitspunkt
 
-    p = np.round(np.linspace(-1000, 1000, 2000))
+    p = np.round(np.linspace(-1000, 1000, 2001))
 
     ReZ = np.sign(omega_0*p+omega_b) * L/(np.pi*r**3 * np.sqrt(2* epsilon_0 * sigma * np.absolute(omega_0*p+omega_b)))
 
